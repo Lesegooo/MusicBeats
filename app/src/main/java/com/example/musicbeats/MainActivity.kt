@@ -16,6 +16,8 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Dialog
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.unit.sp
 
 // Data class to represent a single packing item.
 // This is not a Composable function, nor does it use private val/var at the class level.
@@ -28,6 +30,7 @@ class MainActivity : ComponentActivity() {
         // The entire UI for the first screen (and the second, managed by state)
         // is defined within this setContent block.
         setContent {
+
             // State to control which screen is currently displayed.
             // "main" for the first screen, "list" for the second screen.
             // Using 'remember' with 'mutableStateOf' directly within the lambda
@@ -62,6 +65,9 @@ class MainActivity : ComponentActivity() {
                     when (currentScreen.value) {
                         "main" -> {
                             // --- Screen One UI ---
+                            Column { Text(text = "Music Beats",
+                                fontSize = 40.sp,
+                                modifier = Modifier.fillMaxSize()) }
                             Column(
                                 modifier = Modifier
                                     .fillMaxSize() // Fills the available space.
@@ -69,6 +75,11 @@ class MainActivity : ComponentActivity() {
                                 horizontalAlignment = Alignment.CenterHorizontally, // Centers content horizontally.
                                 verticalArrangement = Arrangement.Center // Centers content vertically.
                             ) {
+
+                                Text(text =
+                                    "This application stores song details and allows users to create and manage playlists. Users are able to rate songs, add comments, and input information about the artist. This app can cater for 4+ songs. The app was evaluated with correct implementation of arrays and loops. Accuracy in calculation and displaying the average rating. It has proper screen navigation with buttons for detailed and extended views. It has a well-designed layout and user interface for both screens. Music Beats has a clear and concise code with meaningful comments.  \n" +
+                                        "\n" +
+                                        " ")
                                 // Button to show the "Add to Packing List" dialog.
                                 Button(
                                     onClick = { showAddItemDialog.value = true },
